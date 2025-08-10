@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Gabe Chiappa — Portfolio</title>
+  <meta name="description" content="Gabe Chiappa • LegalTech Architect & Automation Specialist. AI-powered workflows for immigration, SharePoint, Power Automate, OpenAI."/>
+  <link rel="preload" href="/assets/style.css" as="style"/>
+  <link rel="stylesheet" href="/assets/style.css"/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='black'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='58' fill='%23fff' font-family='Inter,system-ui,Segoe UI,Roboto' %3EG%3C/text%3E%3C/svg%3E"/>
+</head>
+<body>
+  <!-- Under Construction Banner -->
+  <div class="banner" id="uc-banner">
+    <span data-i18n="banner">🚧 Under construction — integrations & media are coming soon.</span>
+  </div>
+
+  <!-- Shell / Noise BG -->
+  <div class="bg-grid"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <img class="avatar" src="/assets/avatar-placeholder.svg" alt="Gabe Chiappa"/>
+      <div>
+        <h1>Gabriel (Gabe) Chiappa</h1>
+        <p class="tagline" data-i18n="tagline">LegalTech Architect & Automation Specialist — Arandia Law • Building AI systems that do real work.</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <div class="lang">
+        <button data-lang="en" aria-label="English">EN</button>
+        <button data-lang="pt" aria-label="Português">PT</button>
+        <button data-lang="es" aria-label="Español">ES</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2 data-i18n="hero_h">I ship automations that lawyers actually use.</h2>
+      <p data-i18n="hero_p">From SharePoint + Power Automate to OpenAI + Microsoft 365, I build end-to-end workflows that cut busywork and move cases forward.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact" data-i18n="btn_contact">Let’s build something</a>
+        <a class="btn ghost" href="/assets/CV%20-%20Gabriel%20Chiappa.pdf" target="_blank" rel="noopener" data-i18n="btn_resume">Resume (PDF)</a>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/chiappagabe/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://github.com/Gabriel-0110" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="https://huggingface.co/gabriel-chiappa" target="_blank" rel="noopener" aria-label="Hugging Face">HF</a>
+        <a href="https://x.com/chiappagabe" target="_blank" rel="noopener" aria-label="X">X</a>
+        <a href="https://www.instagram.com/chiappagabe/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/chiappagabe" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+      </div>
+    </section>
+
+    <section id="about" class="card">
+      <h3 data-i18n="about_h">About</h3>
+      <p data-i18n="about_p">
+        I’m a LegalTech Architect & Automation Specialist at Arandia Law. I design AI-powered systems for immigration workflows — integrating SharePoint, Power Automate, and OpenAI with real-world ops. Fluent in English and Portuguese, working Spanish. I bias to shipping, not demos.
+      </p>
+    </section>
+
+    <section id="projects" class="card">
+      <h3 data-i18n="projects_h">Featured Projects</h3>
+      <div class="grid">
+        <a class="project" href="https://github.com/Gabriel-0110/messageflow" target="_blank" rel="noopener">
+          <img src="/assets/placeholder_messageflow.svg" alt="MessageFlow"/>
+          <div>
+            <h4>MessageFlow</h4>
+            <p data-i18n="p1">Composable messaging pipelines with orchestration and AI helpers.</p>
+          </div>
+        </a>
+        <a class="project" href="https://github.com/Gabriel-0110/LawFirm-ComplianceBot" target="_blank" rel="noopener">
+          <img src="/assets/placeholder_compliancebot.svg" alt="LawFirm ComplianceBot"/>
+          <div>
+            <h4>LawFirm-ComplianceBot</h4>
+            <p data-i18n="p2">Policy-aware assistant for intake & case procedures. Built for busy teams.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="card">
+      <h3 data-i18n="contact_h">Contact</h3>
+      <p data-i18n="contact_p">Want a no-fluff consult on automations? Drop a note — I’ll route it to my Flow.</p>
+      <form id="contact-form">
+        <div class="row">
+          <input name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+        </div>
+        <textarea name="message" rows="5" placeholder="What do you want to build?" required></textarea>
+        <button class="btn primary" type="submit" data-i18n="send">Send</button>
+        <small id="form-status"></small>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Gabe Chiappa</span>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
