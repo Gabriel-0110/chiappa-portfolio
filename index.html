@@ -1,718 +1,107 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gabriel Chiappa — LegalTech Architect & Automation Specialist</title>
-  <meta name="description" content="Portfolio of Gabriel Chiappa — building AI-powered, Microsoft-first automation for law firms. SharePoint, Power Automate, Dynamics 365, Azure." />
-  <meta name="theme-color" content="#0ff" />
-  <meta name="color-scheme" content="dark light" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='1' y2='0'%3E%3Cstop stop-color='%2357d6ff'/%3E%3Cstop stop-color='%238a7dff' offset='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='12' width='64' height='64' fill='url(%23g)'/%3E%3Ctext x='50%' y='54%' text-anchor='middle' font-size='34' font-family='Arial' fill='%230b0e13'%3EGC%3C/text%3E%3C/svg%3E" />
-  <!-- Manifest in-page so you don’t need another file -->
-  <script type="application/manifest+json" id="app-manifest">
-  {
-    "name":"Gabriel Chiappa — LegalTech Architect",
-    "short_name":"Chiappa",
-    "start_url":"/",
-    "display":"standalone",
-    "background_color":"#0b0e13",
-    "theme_color":"#57d6ff",
-    "icons":[
-      {"src":"data:image/png;base64,iVBORw0KGgo=", "sizes":"192x192", "type":"image/png"}
-    ]
-  }
-  </script>
-  <!-- SEO / Open Graph -->
-  <meta property="og:title" content="Gabriel Chiappa — LegalTech Architect" />
-  <meta property="og:description" content="AI + Microsoft stack to automate legal workflows (SharePoint, Power Automate, Dynamics 365, Azure)." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/gabe.jpg" />
-  <meta property="og:url" content="https://ggunifiedtech.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <!-- Styles -->
-  <style>
-    /* ============ Design Tokens ============ */
-    :root{
-      --bg: #0b0e13;
-      --bg2: #0f131b;
-      --panel: rgba(255,255,255,0.06);
-      --panel-strong: rgba(255,255,255,0.12);
-      --text:#e6e9ef;
-      --muted:#9aa4b2;
-      --brand:#57d6ff;
-      --brand2:#8a7dff;
-      --ok:#3fe0a1;
-      --warn:#ffcc66;
-      --err:#ff7a7a;
-      --shadow: 0 14px 40px rgba(0,0,0,.45);
-      --radius:18px;
-      --radius-lg:24px;
-      --speed:.45s;
-      --code:#0d1117;
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f6f7fb; --bg2:#ffffff; --text:#0c1220; --panel: rgba(0,0,0,.06); --panel-strong: rgba(0,0,0,.1); --muted:#4a5365; --code:#f0f3f9; }
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      letter-spacing:.01em;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 800px at 20% -10%, rgba(135,99,255,.15), transparent 60%),
-        radial-gradient(1000px 600px at 120% 10%, rgba(30,215,255,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:var(--brand); text-decoration:none}
-    a:hover{opacity:.92}
-    code,pre{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;}
-    /* ============ Header ============ */
-    header{
-      position:sticky; top:0; z-index:50; backdrop-filter: blur(12px) saturate(1.1);
-      background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0));
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .wrap{max-width:1200px; margin:0 auto; padding:18px 22px}
-    nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
-    .brand{display:flex; gap:14px; align-items:center}
-    .logo{
-      width:38px; height:38px; border-radius:10px; background:
-      conic-gradient(from 210deg, var(--brand), var(--brand2));
-      box-shadow:0 0 30px rgba(135,99,255,.35), inset 0 0 25px rgba(255,255,255,.1);
-    }
-    .brand strong{letter-spacing:.02em}
-    .navlinks a{margin-left:18px; color:var(--muted); font-weight:600}
-    .btn{padding:10px 16px; border-radius:12px; background:linear-gradient(135deg, var(--brand), var(--brand2));
-      color:#0a0d12; font-weight:800; border:none; cursor:pointer; transition:transform var(--speed) ease, box-shadow var(--speed);
-      box-shadow:0 10px 24px rgba(87,214,255,.25);}
-    .btn:hover{transform:translateY(-2px)}
-    .ghost{background:transparent; color:var(--brand); border:1px solid rgba(255,255,255,.14); box-shadow:none}
-    .chip{padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); color:var(--muted); background:rgba(255,255,255,.04)}
-    /* ============ Hero ============ */
-    .hero{
-      position:relative; display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center;
-      padding:70px 22px 24px; max-width:1200px; margin:0 auto;
-    }
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.12); border-radius: var(--radius); box-shadow: var(--shadow);
-    }
-    .hero .left{padding:28px}
-    .tag{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; background:rgba(135,99,255,.18); color:#dfe4ff; font-weight:700}
-    h1{font-size:42px; line-height:1.15; margin:12px 0 8px}
-    .lead{color:var(--muted); font-size:18px}
-    .cta{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
-    .hero .right{padding:18px; display:flex; align-items:center; justify-content:center}
-    .avatar{
-      width:100%; max-width:380px; aspect-ratio:1/1.1; object-fit:cover; border-radius:18px;
-      border:1px solid rgba(255,255,255,.14); box-shadow:0 10px 40px rgba(0,0,0,.45); transform:perspective(900px) rotateY(-6deg);
-      transition: transform .6s ease;
-    }
-    .avatar:hover{transform:perspective(900px) rotateY(0deg)}
-    /* ============ Sections ============ */
-    section{max-width:1200px; margin:42px auto; padding:0 22px}
-    h2{font-size:28px; margin:0 0 14px}
-    .grid{display:grid; gap:18px}
-    .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2, 1fr)}
-    .panel{padding:18px; border-radius:16px; background:var(--panel); border:1px solid rgba(255,255,255,.08)}
-    .kpi{display:flex; align-items:center; gap:14px}
-    .kpi .n{font-size:24px; font-weight:900; color:var(--ok)}
-    .timeline{display:grid; gap:14px}
-    .item{padding:16px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08)}
-    .item h3{margin:0 0 4px; font-size:18px}
-    .item .where{color:var(--muted)}
-    .proj{display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr))}
-    .proj .p{padding:16px; border-radius:16px; border:1px solid rgba(255,255,255,.1);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); display:flex; flex-direction:column; gap:8px}
-    .p .tagline{color:var(--muted); font-size:14px}
-    .p .meta{display:flex; gap:8px; flex-wrap:wrap}
-    .socials{display:flex; gap:12px; flex-wrap:wrap}
-    footer{margin:70px 0 40px; text-align:center; color:var(--muted)}
-    /* ============ Particles Canvas ============ */
-    #fx{position:fixed; inset:0; z-index:-1; pointer-events:none; filter: blur(0.4px) saturate(1.2) opacity(.6)}
-    /* ============ Reveal ============ */
-    .reveal{opacity:0; transform: translateY(10px); transition: all .6s ease}
-    .reveal.show{opacity:1; transform:none}
-    /* ============ Command Palette ============ */
-    .cmdk{
-      position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.5); z-index:60;
-    }
-    .cmdk.open{display:grid}
-    .cmdk .surface{
-      width:min(720px, 92vw); border-radius:18px; background:var(--bg2); box-shadow: var(--shadow); border:1px solid rgba(255,255,255,.12);
-    }
-    .cmdk header{padding:10px 14px; border-bottom:1px solid rgba(255,255,255,.08); backdrop-filter:none; position:static}
-    .cmdk input{width:100%; padding:12px 14px; background:var(--panel); border:1px solid rgba(255,255,255,.1); border-radius:12px; color:var(--text)}
-    .cmdk ul{list-style:none; margin:0; padding:8px; max-height:50vh; overflow:auto}
-    .cmdk li{padding:10px 12px; border-radius:10px; display:flex; justify-content:space-between; align-items:center}
-    .cmdk li:hover,.cmdk li.active{background:rgba(255,255,255,.06)}
-    .kbd{font-size:12px; padding:2px 6px; border-radius:6px; border:1px solid rgba(255,255,255,.25); color:var(--muted)}
-    /* ============ Modal for Case Studies ============ */
-    dialog.case{
-      width:min(850px, 94vw); border-radius:18px; background:var(--bg2); color:var(--text); border:1px solid rgba(255,255,255,.15);
-      box-shadow: var(--shadow);
-    }
-    dialog::backdrop{background:rgba(0,0,0,.55)}
-    .modal-header{display:flex; justify-content:space-between; gap:12px; align-items:center; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.08)}
-    .modal-body{padding:16px}
-    .close{background:transparent; border:1px solid rgba(255,255,255,.18); color:var(--text); padding:6px 10px; border-radius:8px}
-    /* ============ Skills Radar (SVG) ============ */
-    .radar{display:grid; grid-template-columns:360px 1fr; gap:18px; align-items:center}
-    .skillbar{height:10px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden}
-    .skillbar > span{display:block; height:100%; background:linear-gradient(90deg, var(--brand), var(--brand2))}
-    /* ============ Code block demo ============ */
-    pre.snippet{background:var(--code); color:#c9d1d9; padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,.08); overflow:auto}
-    /* ============ Responsive ============ */
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr; padding-top:40px}
-      h1{font-size:36px}
-      .radar{grid-template-columns:1fr}
-    }
-  </style>
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Gabriel Chiappa",
-    "jobTitle":"LegalTech Architect & Automation Specialist",
-    "url":"https://ggunifiedtech.com",
-    "image":"https://ggunifiedtech.com/assets/gabe.jpg",
-    "sameAs":[
-      "https://www.linkedin.com/in/chiappagabe/",
-      "https://github.com/Gabriel-0110",
-      "https://huggingface.co/gabriel-chiappa",
-      "https://x.com/chiappagabe",
-      "https://www.facebook.com/chiappagabe",
-      "https://www.instagram.com/chiappagabe/"
-    ],
-    "knowsLanguage":["en","pt","es"]
-  }
-  </script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Gabe Chiappa — Portfolio</title>
+  <meta name="description" content="Gabe Chiappa • LegalTech Architect & Automation Specialist. AI-powered workflows for immigration, SharePoint, Power Automate, OpenAI."/>
+  <link rel="preload" href="/assets/style.css" as="style"/>
+  <link rel="stylesheet" href="/assets/style.css"/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='black'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='58' fill='%23fff' font-family='Inter,system-ui,Segoe UI,Roboto' %3EG%3C/text%3E%3C/svg%3E"/>
 </head>
 <body>
-  <canvas id="fx" aria-hidden="true"></canvas>
+  <!-- Under Construction Banner -->
+  <div class="banner" id="uc-banner">
+    <span data-i18n="banner">🚧 Under construction — integrations & media are coming soon.</span>
+  </div>
 
-  <header>
-    <div class="wrap">
-      <nav>
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <strong>Gabriel Chiappa</strong>
-        </div>
-        <div class="navlinks" role="navigation" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Builds</a>
-          <a href="#contact">Contact</a>
-          <button id="theme" class="btn ghost" title="Toggle theme (T)">Toggle</button>
-          <button id="cmdkBtn" class="btn" title="Command palette (⌘/Ctrl-K)">⌘K</button>
-        </div>
-      </nav>
+  <!-- Shell / Noise BG -->
+  <div class="bg-grid"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <img class="avatar" src="/assets/avatar-placeholder.svg" alt="Gabe Chiappa"/>
+      <div>
+        <h1>Gabriel (Gabe) Chiappa</h1>
+        <p class="tagline" data-i18n="tagline">LegalTech Architect & Automation Specialist — Arandia Law • Building AI systems that do real work.</p>
+      </div>
     </div>
+    <nav class="nav">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <div class="lang">
+        <button data-lang="en" aria-label="English">EN</button>
+        <button data-lang="pt" aria-label="Português">PT</button>
+        <button data-lang="es" aria-label="Español">ES</button>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
-      <div class="left card reveal">
-        <span class="tag">⚡ LegalTech Architect · Automation Specialist</span>
-        <h1>AI + Microsoft Stack for end-to-end legal workflow automation.</h1>
-        <p class="lead">
-          I build systems that law firms actually use: SharePoint + Power Automate + Dynamics 365 + Azure.
-          Pragmatic AI where it makes sense. Measurable impact. No busywork.
-        </p>
-        <div class="cta">
-          <a class="btn" href="/assets/Gabriel-Chiappa-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-          <a class="btn ghost" href="#projects">See Work</a>
-          <a class="btn ghost" href="mailto:gabriel.chiappa@outlook.com">Email</a>
-        </div>
-        <div style="margin-top:16px" class="socials">
-          <a href="https://www.linkedin.com/in/chiappagabe/" aria-label="LinkedIn">LinkedIn</a> ·
-          <a href="https://github.com/Gabriel-0110" aria-label="GitHub">GitHub</a> ·
-          <a href="https://huggingface.co/gabriel-chiappa" aria-label="Hugging Face">HuggingFace</a> ·
-          <a href="https://x.com/chiappagabe" aria-label="X">X</a> ·
-          <a href="https://www.facebook.com/chiappagabe" aria-label="Facebook">Facebook</a> ·
-          <a href="https://www.instagram.com/chiappagabe/" aria-label="Instagram">Instagram</a>
-        </div>
+      <h2 data-i18n="hero_h">I ship automations that lawyers actually use.</h2>
+      <p data-i18n="hero_p">From SharePoint + Power Automate to OpenAI + Microsoft 365, I build end-to-end workflows that cut busywork and move cases forward.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact" data-i18n="btn_contact">Let’s build something</a>
+        <a class="btn ghost" href="/assets/CV%20-%20Gabriel%20Chiappa.pdf" target="_blank" rel="noopener" data-i18n="btn_resume">Resume (PDF)</a>
       </div>
-      <div class="right card reveal">
-        <img class="avatar" src="/assets/gabe.jpg" alt="Portrait of Gabriel Chiappa">
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/chiappagabe/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://github.com/Gabriel-0110" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="https://huggingface.co/gabriel-chiappa" target="_blank" rel="noopener" aria-label="Hugging Face">HF</a>
+        <a href="https://x.com/chiappagabe" target="_blank" rel="noopener" aria-label="X">X</a>
+        <a href="https://www.instagram.com/chiappagabe/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/chiappagabe" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="reveal">
-      <h2>Signal, not fluff</h2>
-      <div class="grid cols-3">
-        <div class="panel kpi">
-          <div class="n">Automation</div>
-          <div>Microsoft-first: SharePoint, Power Automate, Dynamics 365, Azure, Intune, Copilot Studio.</div>
-        </div>
-        <div class="panel">
-          <strong>What I optimize</strong>
-          <ul style="margin:8px 0 0 18px">
-            <li>Document intake, naming, routing, & retention</li>
-            <li>CRM workflows & hands-off notifications</li>
-            <li>Two-way SMS/voice in Teams</li>
-            <li>Case dashboards + telemetry</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <strong>Recent wins</strong>
-          <ul style="margin:8px 0 0 18px">
-            <li>↑ productivity via SharePoint rollout</li>
-            <li>Device compliance with Intune</li>
-            <li>Reduced manual CRM tasks in Dynamics</li>
-          </ul>
-        </div>
-      </div>
+    <section id="about" class="card">
+      <h3 data-i18n="about_h">About</h3>
+      <p data-i18n="about_p">
+        I’m a LegalTech Architect & Automation Specialist at Arandia Law. I design AI-powered systems for immigration workflows — integrating SharePoint, Power Automate, and OpenAI with real-world ops. Fluent in English and Portuguese, working Spanish. I bias to shipping, not demos.
+      </p>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="reveal">
-      <h2>Skills & tooling</h2>
-      <div class="panel radar">
-        <svg id="radar" viewBox="-120 -120 240 240" width="360" height="360" role="img" aria-label="Skill radar">
-          <defs>
-            <linearGradient id="grad" x1="0" x2="1" y1="1" y2="0">
-              <stop stop-color="#57d6ff"/>
-              <stop stop-color="#8a7dff" offset="1"/>
-            </linearGradient>
-          </defs>
-          <circle r="100" fill="none" stroke="rgba(255,255,255,.15)"/>
-          <circle r="75" fill="none" stroke="rgba(255,255,255,.12)"/>
-          <circle r="50" fill="none" stroke="rgba(255,255,255,.10)"/>
-          <circle r="25" fill="none" stroke="rgba(255,255,255,.08)"/>
-          <g id="axes" stroke="rgba(255,255,255,.25)">
-            <!-- axes will be populated by JS -->
-          </g>
-          <polygon id="poly" fill="url(#grad)" stroke="rgba(255,255,255,.65)" stroke-width="1" fill-opacity=".28"></polygon>
-          <g id="labels" font-size="10" fill="#9aa4b2"></g>
-        </svg>
-        <div class="grid">
-          <div>
-            <div class="chip">SharePoint · Admin & Dev</div>
-            <div class="skillbar" style="margin-top:8px"><span style="width:92%"></span></div>
-          </div>
-          <div>
-            <div class="chip">Power Automate · RPA/Flows</div>
-            <div class="skillbar" style="margin-top:8px"><span style="width:90%"></span></div>
-          </div>
-          <div>
-            <div class="chip">Dynamics 365 · Dataverse</div>
-            <div class="skillbar" style="margin-top:8px"><span style="width:86%"></span></div>
-          </div>
-          <div>
-            <div class="chip">Azure · Functions/Graph</div>
-            <div class="skillbar" style="margin-top:8px"><span style="width:80%"></span></div>
-          </div>
-          <div>
-            <div class="chip">Node/Express · APIs</div>
-            <div class="skillbar" style="margin-top:8px"><span style="width:78%"></span></div>
-          </div>
-          <div>
-            <div class="chip">Intune · Compliance</div>
-            <div class="skillbar" style="margin-top:8px"><span style="width:82%"></span></div>
-          </div>
-          <div>
-            <div class="chip">Copilot Studio · Bots</div>
-            <div class="skillbar" style="margin-top:8px"><span style="width:76%"></span></div>
-          </div>
-          <div>
-            <div class="chip">Power BI · Reporting</div>
-            <div class="skillbar" style="margin-top:8px"><span style="width:70%"></span></div>
-          </div>
-        </div>
-      </div>
-      <details class="panel" style="margin-top:12px">
-        <summary><strong>How I work</strong></summary>
-        <ul>
-          <li>Blueprint first (process map → data model → UX → automation)</li>
-          <li>Ship in weekly increments with telemetry</li>
-          <li>Secure by default: least privilege, audit trails, data retention</li>
-          <li>Document enough to be dangerous; automate the boring parts</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="reveal">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="item">
-          <h3>Head of Digital Transformation & Integrated Technology</h3>
-          <div class="where">Arandia Law Firm · 2024 — Present</div>
-          <ul>
-            <li>SharePoint collaboration and IA improvements</li>
-            <li>Intune rollout and device posture hardening</li>
-            <li>Purview governance & data lifecycle</li>
-            <li>Dynamics customization; automation of routine tasks</li>
-          </ul>
-          <button class="btn ghost" data-case="arandia">Read case study</button>
-        </div>
-        <div class="item">
-          <h3>Digital Transformation Analyst</h3>
-          <div class="where">Heidner Law Firm, P.C. · 2021 — 2024</div>
-          <ul>
-            <li>Microsoft 365 integration and automation</li>
-            <li>Client-facing workflow optimization</li>
-          </ul>
-        </div>
-        <div class="item">
-          <h3>Operations & Communications</h3>
-          <div class="where">Parthenon Rentals · Souza Studios · Estácio</div>
-          <ul>
-            <li>Scaled occupancy, pricing analytics, and digital comms</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-      <h2>Recent Builds</h2>
-      <div id="projectGrid" class="proj"></div>
-      <pre class="snippet" aria-label="API snippet">
-POST /api/docu-pipeline
-Authorization: Bearer &lt;token&gt;
-Content-Type: application/json
-
-{
-  "documentUrl": "https://contoso.sharepoint.com/sites/Legal/Docs/receipt.pdf",
-  "ruleset": "USCIS_I-797",
-  "destination": "sharepoint://Case/2025-00123/USCIS"
-}
-      </pre>
-    </section>
-
-    <!-- SPEAKING -->
-    <section class="reveal">
-      <h2>Speaking / Writing</h2>
+    <section id="projects" class="card">
+      <h3 data-i18n="projects_h">Featured Projects</h3>
       <div class="grid">
-        <div class="panel">
-          I share build notes & teardown threads on <a href="https://x.com/chiappagabe">X</a> and
-          <a href="https://www.linkedin.com/in/chiappagabe/">LinkedIn</a>—Power Automate tricks, SharePoint IA, Dynamics telemetry, Teams telephony, and pragmatic AI in small firms.
-        </div>
+        <a class="project" href="https://github.com/Gabriel-0110/messageflow" target="_blank" rel="noopener">
+          <img src="/assets/placeholder_messageflow.svg" alt="MessageFlow"/>
+          <div>
+            <h4>MessageFlow</h4>
+            <p data-i18n="p1">Composable messaging pipelines with orchestration and AI helpers.</p>
+          </div>
+        </a>
+        <a class="project" href="https://github.com/Gabriel-0110/LawFirm-ComplianceBot" target="_blank" rel="noopener">
+          <img src="/assets/placeholder_compliancebot.svg" alt="LawFirm ComplianceBot"/>
+          <div>
+            <h4>LawFirm-ComplianceBot</h4>
+            <p data-i18n="p2">Policy-aware assistant for intake & case procedures. Built for busy teams.</p>
+          </div>
+        </a>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="reveal">
-      <h2>Get in touch</h2>
-      <div class="panel">
-        <form name="contact" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contact">
-          <div class="grid cols-3" style="grid-template-columns:1fr 1fr 1fr">
-            <label> Name<br><input required name="name" style="width:100%"></label>
-            <label> Email<br><input required type="email" name="email" style="width:100%"></label>
-            <label> Topic<br><input name="topic" style="width:100%"></label>
-          </div>
-          <label> Message<br><textarea name="message" rows="5" style="width:100%"></textarea></label>
-          <div class="cta" style="margin-top:12px">
-            <button class="btn" type="submit">Send</button>
-            <a class="btn ghost" href="mailto:gabriel.chiappa@outlook.com">Email me</a>
-          </div>
-        </form>
-      </div>
+    <section id="contact" class="card">
+      <h3 data-i18n="contact_h">Contact</h3>
+      <p data-i18n="contact_p">Want a no-fluff consult on automations? Drop a note — I’ll route it to my Flow.</p>
+      <form id="contact-form">
+        <div class="row">
+          <input name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+        </div>
+        <textarea name="message" rows="5" placeholder="What do you want to build?" required></textarea>
+        <button class="btn primary" type="submit" data-i18n="send">Send</button>
+        <small id="form-status"></small>
+      </form>
     </section>
   </main>
 
-  <footer>© <span id="y"></span> Gabriel Chiappa · Built with clean HTML/CSS/JS. No frameworks were harmed. · <a href="#" id="install">Install App</a></footer>
+  <footer>
+    <span>© <span id="year"></span> Gabe Chiappa</span>
+  </footer>
 
-  <!-- CASE STUDY MODAL -->
-  <dialog class="case" id="case-arandia" aria-labelledby="case-title">
-    <div class="modal-header">
-      <h3 id="case-title">Case Study: Arandia Law — Microsoft-first Transformation</h3>
-      <button class="close" onclick="document.getElementById('case-arandia').close()">Close</button>
-    </div>
-    <div class="modal-body">
-      <p><strong>Challenge:</strong> streamline document chaos, unify comms, reduce manual CRM work.</p>
-      <p><strong>Solution:</strong> SharePoint IA + Power Automate flows (intake, rename, route), Teams telephony glue, Dynamics customization, and compliance baselines in Intune.</p>
-      <p><strong>Outcome:</strong> cleaner intake, fewer missed steps, measurable time savings.</p>
-      <p class="muted">Details available on request.</p>
-    </div>
-  </dialog>
-
-  <!-- COMMAND PALETTE -->
-  <div class="cmdk" id="cmdk" aria-hidden="true">
-    <div class="surface">
-      <header class="wrap">
-        <input id="cmdkInput" placeholder="Type a command… (try 'resume', 'github', 'projects', 'theme')" aria-label="Command input" />
-      </header>
-      <ul id="cmdkList"></ul>
-    </div>
-  </div>
-
-  <script>
-    /* =================== Utilities & Globals =================== */
-    const $ = sel => document.querySelector(sel);
-    const $$ = sel => Array.from(document.querySelectorAll(sel));
-
-    /* =================== Year =================== */
-    $('#y').textContent = new Date().getFullYear();
-
-    /* =================== Theme toggle + keyboard =================== */
-    const themeBtn = document.getElementById('theme');
-    const THEME_KEY = 'theme';
-    const savedTheme = localStorage.getItem(THEME_KEY);
-    if(savedTheme === 'light') document.documentElement.style.filter = 'invert(1) hue-rotate(180deg)';
-    themeBtn.onclick = toggleTheme;
-    document.addEventListener('keydown', e => { if(e.key.toLowerCase()==='t') toggleTheme(); });
-    function toggleTheme(){
-      const inverted = document.documentElement.style.filter.includes('invert');
-      document.documentElement.style.filter = inverted ? '' : 'invert(1) hue-rotate(180deg)';
-      localStorage.setItem(THEME_KEY, inverted ? 'dark' : 'light');
-    }
-
-    /* =================== Reveal on scroll =================== */
-    const io = new IntersectionObserver((entries)=>entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target) }
-    }), {threshold:.15});
-    $$('.reveal').forEach(el=>io.observe(el));
-
-    /* =================== Particles =================== */
-    const c = document.getElementById('fx'), ctx = c.getContext('2d');
-    let W,H, parts=[];
-    function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
-    addEventListener('resize', resize); resize();
-    for(let i=0;i<140;i++){
-      parts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*2+0.5});
-    }
-    (function loop(){
-      ctx.clearRect(0,0,W,H);
-      for(const p of parts){
-        p.x+=p.vx; p.y+=p.vy;
-        if(p.x<0||p.x>W) p.vx*=-1;
-        if(p.y<0||p.y>H) p.vy*=-1;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        const g = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3);
-        g.addColorStop(0,'rgba(135,99,255,.8)'); g.addColorStop(1,'rgba(87,214,255,0)');
-        ctx.fillStyle=g; ctx.fill();
-      }
-      requestAnimationFrame(loop);
-    })();
-
-    /* =================== Skills Radar =================== */
-    const radarSkills = [
-      {label:'SharePoint', val:0.92},
-      {label:'Power Automate', val:0.90},
-      {label:'Dynamics 365', val:0.86},
-      {label:'Azure', val:0.80},
-      {label:'Node/Express', val:0.78},
-      {label:'Intune', val:0.82},
-      {label:'Copilot Studio', val:0.76},
-      {label:'Power BI', val:0.70}
-    ];
-    const axes = document.getElementById('axes');
-    const labels = document.getElementById('labels');
-    function polar(angle, radius){ return {x: Math.cos(angle)*radius, y: Math.sin(angle)*radius}; }
-    function drawRadar(){
-      const N = radarSkills.length;
-      const step = (Math.PI*2)/N;
-      let points = [];
-      axes.innerHTML = ''; labels.innerHTML='';
-      radarSkills.forEach((s, i)=>{
-        const a = -Math.PI/2 + i*step;
-        const end = polar(a, 100);
-        const p = polar(a, s.val*100);
-        points.push(`${p.x},${p.y}`);
-        const ax = document.createElementNS('http://www.w3.org/2000/svg','line');
-        ax.setAttribute('x1',0); ax.setAttribute('y1',0);
-        ax.setAttribute('x2',end.x); ax.setAttribute('y2',end.y);
-        axes.appendChild(ax);
-        const lab = document.createElementNS('http://www.w3.org/2000/svg','text');
-        lab.setAttribute('x', end.x*1.12); lab.setAttribute('y', end.y*1.12);
-        lab.setAttribute('text-anchor', end.x<0 ? 'end' : (Math.abs(end.x)<1 ? 'middle' : 'start'));
-        lab.textContent = s.label;
-        labels.appendChild(lab);
-      });
-      document.getElementById('poly').setAttribute('points', points.join(' '));
-    }
-    drawRadar();
-
-    /* =================== Projects Data =================== */
-    const projects = [
-      {
-        title:'DocuPipeline',
-        tagline:'OCR + QA + auto-routing for legal docs → SharePoint/Dynamics',
-        chips:['Azure Functions','OpenAI','SharePoint API'],
-        links:[
-          {href:'https://github.com/Gabriel-0110', label:'Repo hub'},
-          {href:'#', label:'Case study', case:'docupipeline'}
-        ],
-        modal:`<p><strong>What:</strong> Large-batch OCR + naming + routing with validation rules.</p>
-               <p><strong>Stack:</strong> Functions, Graph API, storage queues, OpenAI verifier.</p>`
-      },
-      {
-        title:'Teams SMS Bridge',
-        tagline:'Two-way SMS in Microsoft Teams with Twilio/RingCentral glue',
-        chips:['Power Automate','Node/Express','Dynamics'],
-        links:[
-          {href:'https://github.com/Gabriel-0110', label:'Read more'}
-        ],
-        modal:`<p>Route inbound SMS into Teams channels, enable replies → client sees firm number.</p>`
-      },
-      {
-        title:'AOS Case Hub',
-        tagline:'Model-driven app for immigration case orchestration',
-        chips:['Dataverse','Power Apps','Power BI'],
-        links:[
-          {href:'https://github.com/Gabriel-0110', label:'Screens'}
-        ],
-        modal:`<p>Unifies people/cases/tasks, and surfaces timelines and KPIs for operations.</p>`
-      },
-      {
-        title:'Device Compliance Dash',
-        tagline:'Intune posture + alerts + actions',
-        chips:['Intune','Power BI','Graph'],
-        links:[{href:'#', label:'Overview'}],
-        modal:`<p>Track compliance, push remediations, and alert on drift with Graph.</p>`
-      }
-    ];
-    const grid = document.getElementById('projectGrid');
-    projects.forEach(p=>{
-      const el = document.createElement('article'); el.className='p';
-      el.innerHTML = `<strong>${p.title}</strong>
-        <div class="tagline">${p.tagline}</div>
-        <div class="meta">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
-        <div class="cta">${p.links.map(l=> l.case ? `<button class="btn ghost" data-case="${l.case}">${l.label}</button>` : `<a class="btn ghost" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join(' ')}</div>`;
-      grid.appendChild(el);
-    });
-
-    /* =================== Case study openers =================== */
-    document.addEventListener('click', (e)=>{
-      const t = e.target;
-      if(t.matches('[data-case="arandia"]')) $('#case-arandia').showModal();
-      if(t.matches('[data-case="docupipeline"]')) {
-        const dlg = document.createElement('dialog'); dlg.className='case';
-        dlg.innerHTML = `<div class="modal-header"><h3>Case Study: DocuPipeline</h3>
-          <button class="close">Close</button></div><div class="modal-body">${projects[0].modal}</div>`;
-        document.body.appendChild(dlg);
-        dlg.querySelector('.close').onclick = ()=> dlg.close();
-        dlg.addEventListener('close', ()=> dlg.remove());
-        dlg.showModal();
-      }
-    });
-
-    /* =================== Command Palette (⌘/Ctrl-K) =================== */
-    const palette = $('#cmdk');
-    const input = $('#cmdkInput');
-    const list = $('#cmdkList');
-    const commands = [
-      {label:'Open Resume', hint:'Enter', run:()=> window.open('/assets/Gabriel-Chiappa-Resume.pdf','_blank')},
-      {label:'Go to Projects', hint:'P', run:()=> location.hash='#projects'},
-      {label:'Visit GitHub', hint:'G', run:()=> window.open('https://github.com/Gabriel-0110','_blank')},
-      {label:'LinkedIn', hint:'L', run:()=> window.open('https://www.linkedin.com/in/chiappagabe/','_blank')},
-      {label:'HuggingFace', hint:'H', run:()=> window.open('https://huggingface.co/gabriel-chiappa','_blank')},
-      {label:'Toggle Theme', hint:'T', run:()=> toggleTheme()},
-      {label:'Contact via Email', hint:'E', run:()=> location.href='mailto:gabriel.chiappa@outlook.com'},
-      {label:'Scroll to Skills', hint:'S', run:()=> location.hash='#skills'}
-    ];
-    function openCmdk(){
-      palette.classList.add('open'); palette.setAttribute('aria-hidden','false'); input.value=''; renderCmdk(commands); input.focus();
-    }
-    function closeCmdk(){ palette.classList.remove('open'); palette.setAttribute('aria-hidden','true'); }
-    function renderCmdk(items){
-      list.innerHTML = items.map((c,i)=>`<li ${i===0?'class="active"':''} data-idx="${i}"><span>${c.label}</span><span class="kbd">${c.hint}</span></li>`).join('');
-    }
-    function filterCmdk(v){
-      const filtered = commands.filter(c=> c.label.toLowerCase().includes(v.toLowerCase()));
-      renderCmdk(filtered);
-    }
-    $('#cmdkBtn').onclick = openCmdk;
-    document.addEventListener('keydown', (e)=>{
-      if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); palette.classList.contains('open')?closeCmdk():openCmdk(); }
-      if(palette.classList.contains('open')){
-        if(e.key==='Escape') closeCmdk();
-        if(e.key==='Enter'){
-          const li = list.querySelector('.active'); if(!li) return;
-          const idx = +li.dataset.idx;
-          const item = commands.filter(c=> c.label.toLowerCase().includes(input.value.toLowerCase()))[idx] || commands[idx];
-          item?.run(); closeCmdk();
-        }
-        if(e.key==='ArrowDown' || e.key==='ArrowUp'){
-          const items = [...list.children]; if(items.length===0) return;
-          let i = items.findIndex(el=>el.classList.contains('active'));
-          items[i]?.classList.remove('active');
-          i = e.key==='ArrowDown' ? Math.min(i+1, items.length-1) : Math.max(i-1, 0);
-          items[i].classList.add('active'); items[i].scrollIntoView({block:'nearest'});
-          e.preventDefault();
-        }
-      }
-    });
-    input.addEventListener('input', (e)=> filterCmdk(e.target.value));
-    list.addEventListener('click', (e)=>{
-      const li = e.target.closest('li'); if(!li) return;
-      const idx = +li.dataset.idx;
-      const item = commands.filter(c=> c.label.toLowerCase().includes(input.value.toLowerCase()))[idx] || commands[idx];
-      item?.run(); closeCmdk();
-    });
-    palette.addEventListener('click', e=> { if(e.target === palette) closeCmdk(); });
-
-    /* =================== I18N skeleton (EN/PT/ES) =================== */
-    const i18n = {
-      en: { contact:'Get in touch' },
-      pt: { contact:'Fale comigo' },
-      es: { contact:'Hable conmigo' }
-    };
-    function setLang(lang='en'){
-      document.documentElement.lang = lang;
-      const el = document.querySelector('#contact h2'); if(el) el.textContent = i18n[lang]?.contact || i18n.en.contact;
-    }
-    // Detect browser language (keep English if unknown)
-    const lang = (navigator.language||'en').slice(0,2);
-    if(['en','pt','es'].includes(lang)) setLang(lang);
-
-    /* =================== Service Worker (inline) =================== */
-    if('serviceWorker' in navigator){
-      const sw = `
-        const CACHE='gc-v1';
-        self.addEventListener('install',e=>{
-          e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./','/assets/gabe.jpg','/assets/Gabriel-Chiappa-Resume.pdf'])).then(()=>self.skipWaiting()));
-        });
-        self.addEventListener('activate',e=>{
-          e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));
-          self.clients.claim();
-        });
-        self.addEventListener('fetch',e=>{
-          e.respondWith(caches.match(e.request).then(r=> r || fetch(e.request)));
-        });
-      `;
-      const blob = new Blob([sw], {type:'text/javascript'});
-      const url = URL.createObjectURL(blob);
-      navigator.serviceWorker.register(url);
-    }
-
-    /* =================== Install Prompt =================== */
-    let deferred;
-    window.addEventListener('beforeinstallprompt', (e)=>{ e.preventDefault(); deferred = e; $('#install').style.display='inline'; });
-    $('#install').addEventListener('click', async (e)=>{
-      e.preventDefault();
-      if(deferred){ deferred.prompt(); const choice = await deferred.userChoice; if(choice.outcome==='accepted'){ $('#install').textContent = 'Installed'; } }
-    });
-
-    /* =================== Accessibility niceties =================== */
-    document.addEventListener('keydown', e=>{
-      if(e.key==='/' && document.activeElement.tagName!=='INPUT' && document.activeElement.tagName!=='TEXTAREA'){
-        e.preventDefault(); openCmdk();
-      }
-    });
-
-    /* =================== Case study hook =================== */
-    document.querySelectorAll('[data-case]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const id = btn.dataset.case;
-        if(id==='arandia') $('#case-arandia').showModal();
-      });
-    });
-  </script>
+  <script src="/assets/app.js" defer></script>
 </body>
 </html>
